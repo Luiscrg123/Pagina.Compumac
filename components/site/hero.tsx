@@ -1,5 +1,4 @@
 import { Check, Phone } from "lucide-react"
-import { BlurFade } from "@/components/ui/blur-fade"
 import { DotPattern } from "@/components/ui/dot-pattern"
 import { WhatsAppIcon } from "@/components/site/icons"
 import { QuoteBuilder } from "@/components/site/quote-builder"
@@ -22,26 +21,26 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pt-12 pb-20 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:pt-20 lg:pb-28">
         <div>
-          <BlurFade delay={0.05}>
+          <div className="hero-in" style={{ "--delay": "0.05s" } as React.CSSProperties}>
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 px-3.5 py-1.5 text-[0.8rem] font-bold text-brand-dark shadow-sm backdrop-blur">
               <span className="size-1.5 rounded-full bg-brand" />
               Servicio técnico en Piura desde {FOUNDED}
             </span>
-          </BlurFade>
+          </div>
 
-          <BlurFade delay={0.15}>
+          <div className="hero-in" style={{ "--delay": "0.15s" } as React.CSSProperties}>
             <h1 className="mt-6 text-[2.6rem] leading-[1.05] font-extrabold tracking-[-0.035em] sm:text-6xl lg:text-[4.1rem]">
               Reparamos tu <span className="text-brand">laptop, PC o impresora</span> en Piura
             </h1>
-          </BlurFade>
+          </div>
 
-          <BlurFade delay={0.25}>
+          <div className="hero-in" style={{ "--delay": "0.25s" } as React.CSSProperties}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
               Diagnóstico gratis, presupuesto antes de reparar y reparaciones con garantía. Muchas quedan listas el mismo día.
             </p>
-          </BlurFade>
+          </div>
 
-          <BlurFade delay={0.35}>
+          <div className="hero-in" style={{ "--delay": "0.35s" } as React.CSSProperties}>
             <ul className="mt-7 grid gap-x-8 gap-y-3 sm:grid-cols-2 sm:max-w-lg">
               {CHECKS.map((c) => (
                 <li key={c} className="flex items-center gap-2.5 font-semibold text-ink">
@@ -52,9 +51,9 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-          </BlurFade>
+          </div>
 
-          <BlurFade delay={0.45}>
+          <div className="hero-in" style={{ "--delay": "0.45s" } as React.CSSProperties}>
             <div className="mt-9 flex flex-wrap gap-3">
               <a
                 href={whatsappLink("Hola Compumac, quiero cotizar una reparación.")}
@@ -73,12 +72,12 @@ export function Hero() {
                 {PHONE_DISPLAY}
               </a>
             </div>
-          </BlurFade>
+          </div>
         </div>
 
-        <BlurFade delay={0.3} direction="up" offset={16}>
+        <div className="hero-in" style={{ "--delay": "0.3s" } as React.CSSProperties}>
           <QuoteBuilder />
-        </BlurFade>
+        </div>
       </div>
     </section>
   )

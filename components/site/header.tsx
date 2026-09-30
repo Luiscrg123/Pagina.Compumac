@@ -69,7 +69,7 @@ export function Header() {
             : "border-b border-transparent bg-white/0",
         )}
       >
-        <div className="mx-auto flex max-w-7xl items-center gap-8 px-5 py-3">
+        <div className="mx-auto flex max-w-7xl items-center gap-6 px-5 py-3 xl:gap-8">
           <a href="#top" aria-label="Compumac, inicio" className="mr-auto flex items-center gap-3.5">
             <Image
               src="/img/logo-compumac.webp"
@@ -80,7 +80,7 @@ export function Header() {
               unoptimized
               className="h-10 w-auto sm:h-14"
             />
-            <span className="border-l border-slate-200 pl-3.5 text-[0.62rem] font-bold leading-tight tracking-[0.12em] text-slate-500 uppercase sm:text-[0.68rem]">
+            <span className="border-l border-slate-200 pl-3.5 text-[0.62rem] lg:hidden xl:block font-bold leading-tight tracking-[0.12em] text-slate-500 uppercase sm:text-[0.68rem]">
               Servicio
               <br />
               técnico
@@ -92,7 +92,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-[0.92rem] font-semibold text-slate-600 transition-colors hover:bg-slate-100 hover:text-ink"
+                className="rounded-full px-3 py-2 text-[0.92rem] font-semibold whitespace-nowrap xl:px-3.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-ink"
               >
                 {item.label}
               </a>
@@ -101,7 +101,7 @@ export function Header() {
 
           <a
             href="#cotizar"
-            className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/30 lg:inline-flex"
+            className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-bold whitespace-nowrap text-white shadow-lg shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/30 lg:inline-flex"
           >
             Cotizar reparación
           </a>
