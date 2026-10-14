@@ -13,7 +13,7 @@ import { LAPTOP_FAQS, LAPTOP_PAGE, PHONE_TEL, SITE_URL } from "@/lib/site"
 
 const title = "Reparación de laptops en Piura | Compumac"
 const description =
-  "Reparación de laptops HP, Lenovo, Dell, Asus, Acer y MacBook en Piura: pantalla, no prende, no carga, se mojó, lenta o con virus. Diagnóstico gratis y reparaciones con garantía."
+  "Reparación de laptops HP, Lenovo, Dell, Asus, Acer y MacBook en Piura: pantalla, no prende, no carga, se mojó, lenta o con virus, y recuperación de información. Diagnóstico gratis y reparaciones con garantía."
 
 export const metadata: Metadata = {
   title,
@@ -72,7 +72,7 @@ export default function LaptopRepairPage() {
               Reparación de <span className="text-brand">laptops</span> en Piura
             </>
           }
-          text="Pantalla rota, no prende, no carga, se mojó, lenta o con virus. Diagnóstico gratis y presupuesto antes de reparar."
+          text="Pantalla rota, no prende, no carga, se mojó, lenta o con virus. También recuperamos tu información. Diagnóstico gratis y presupuesto antes de reparar."
           checks={["Diagnóstico gratis", "Reparaciones con garantía", "Muchas, el mismo día", "HP, Lenovo, Dell, Asus, Acer y MacBook"]}
           whatsappMessage="Hola Compumac, quiero cotizar la reparación de mi laptop."
           defaultDevice="laptop"

@@ -1,9 +1,10 @@
 // Datos del negocio: todo lo que se muestra en la web sale de aqui.
 // Solo informacion confirmada por Compumac.
 
-export const WHATSAPP = "51938246236"
-export const PHONE_DISPLAY = "938 246 236"
-export const PHONE_TEL = "+51938246236"
+// Numero de la empresa (el mismo del Perfil de Empresa en Google), para llamadas y WhatsApp.
+export const WHATSAPP = "51935065145"
+export const PHONE_DISPLAY = "935 065 145"
+export const PHONE_TEL = "+51935065145"
 export const ADDRESS = "Jr. Huánuco 804, Piura"
 export const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Jr.+Hu%C3%A1nuco+804,+Piura,+Peru"
 export const MAPS_EMBED = "https://www.google.com/maps?q=Jr.+Hu%C3%A1nuco+804,+Piura,+Peru&output=embed"
@@ -96,6 +97,7 @@ export const DEVICES: Record<
       "Lenta, con virus o para formatear",
       "Se calienta o hace ruido",
       "Mejora a disco SSD y más RAM",
+      "Recuperación de información de laptops dañadas",
     ],
     quickProblems: [
       "No prende para nada",
@@ -105,6 +107,7 @@ export const DEVICES: Record<
       "Lenta o con virus",
       "Se calienta o hace ruido",
       "Mejora a SSD o más RAM",
+      "Recuperar mi información",
       "Otro problema",
     ],
     brands: ["HP", "Lenovo", "Dell", "Asus", "Acer", "Apple (MacBook)"],
@@ -151,6 +154,10 @@ export const LAPTOP_FAQS = [
   {
     q: "Se mojó mi laptop, ¿qué hago?",
     a: "Apágala de inmediato, desconecta el cargador y no intentes prenderla para ver si funciona. Tráela lo antes posible: el líquido sigue dañando la placa con las horas.",
+  },
+  {
+    q: "¿Pueden recuperar la información de mi laptop dañada?",
+    a: "Sí, recuperamos información (fotos, documentos y archivos) de laptops dañadas, que no prenden o que se mojaron. En el diagnóstico gratis revisamos el disco y te decimos qué se puede recuperar y cuánto cuesta.",
   },
   {
     q: "¿Reparan MacBook?",
