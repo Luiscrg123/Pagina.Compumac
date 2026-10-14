@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/" },
   icons: { icon: "/img/favicon.png", apple: "/img/apple-touch-icon.png" },
+  // Verificacion de Google Search Console
+  verification: { google: "7YAL0xw61u61y8FaahCQwRhwGxugJoNat9VLQxOixXQ" },
   openGraph: {
     type: "website",
     url: "/",
