@@ -16,7 +16,7 @@ export function Hero() {
         cr={1.1}
         className="text-slate-300/70 [mask-image:radial-gradient(ellipse_70%_60%_at_40%_30%,black,transparent)]"
       />
-      <div className="pointer-events-none absolute -top-40 right-[-10%] size-[42rem] rounded-full bg-brand/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 right-[-10%] size-[42rem] rounded-full bg-brand/6 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-b from-transparent to-white" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pt-12 pb-20 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:pt-20 lg:pb-28">
