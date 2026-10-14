@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/site/section-heading"
 import { BlurFade } from "@/components/ui/blur-fade"
 
 const STEPS = [
-  { icon: MessageCircle, title: "Escríbenos o ven", text: "Cuéntanos la falla por WhatsApp o trae tu equipo a Av. Loreto 461." },
+  { icon: MessageCircle, title: "Escríbenos o ven", text: "Cuéntanos la falla por WhatsApp o trae tu equipo a Jr. Huánuco 804." },
   { icon: SearchCheck, title: "Diagnóstico gratis", text: "Revisamos el equipo y encontramos la falla, sin costo." },
   { icon: ClipboardCheck, title: "Tú decides", text: "Te damos el presupuesto y reparamos solo si estás de acuerdo." },
   { icon: Wrench, title: "Listo, con garantía", text: "Muchas reparaciones quedan listas el mismo día, y tu reparación lleva garantía." },

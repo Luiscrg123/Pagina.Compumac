@@ -12,7 +12,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 const title = "Servicio técnico de laptops, PCs e impresoras en Piura | Compumac"
 const description =
-  "Reparación de laptops, computadoras e impresoras en Piura. Diagnóstico gratis, reparaciones con garantía y muchas listas el mismo día. Desde 2004 en Av. Loreto 461."
+  "Reparación de laptops, computadoras e impresoras en Piura. Diagnóstico gratis, reparaciones con garantía y muchas listas el mismo día. Desde 2004, ahora en Jr. Huánuco 804."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Compumac",
     locale: "es_PE",
     title: "Compumac | Servicio técnico de laptops, PCs e impresoras en Piura",
-    description: "Diagnóstico gratis, reparaciones con garantía y muchas listas el mismo día. Desde 2004 en Av. Loreto 461, Piura.",
+    description: "Diagnóstico gratis, reparaciones con garantía y muchas listas el mismo día. Desde 2004, ahora en Jr. Huánuco 804, Piura.",
     images: [{ url: "/img/og-compumac.png", width: 1200, height: 630, alt: "Compumac E.I.R.L." }],
   },
 }

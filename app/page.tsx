@@ -23,7 +23,7 @@ const jsonLd = {
   foundingDate: String(FOUNDED),
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Av. Loreto 461",
+    streetAddress: "Jr. Huánuco 804",
     addressLocality: "Piura",
     addressRegion: "Piura",
     addressCountry: "PE",
