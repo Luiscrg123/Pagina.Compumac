@@ -3,11 +3,8 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
-import { MapPin, Menu, Phone, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { openStatus } from "@/lib/hours"
-import { useLimaNow } from "@/lib/use-lima-now"
-import { ADDRESS, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site"
 
 const NAV = [
   { href: "#reparaciones", label: "Reparaciones" },
@@ -18,8 +15,6 @@ const NAV = [
 ]
 
 export function Header() {
-  const now = useLimaNow()
-  const status = now ? openStatus(now) : null
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -32,35 +27,6 @@ export function Header() {
 
   return (
     <>
-      <div className="bg-ink text-[0.8rem] text-slate-300">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 px-5 py-2 sm:justify-between">
-          <span className="inline-flex items-center gap-2">
-            <span className="relative flex size-2">
-              {status?.open && (
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              )}
-              <span
-                className={cn(
-                  "relative inline-flex size-2 rounded-full",
-                  status ? (status.open ? "bg-emerald-400" : "bg-red-400") : "bg-slate-500",
-                )}
-              />
-            </span>
-            <span className={cn(status?.open && "text-white")}>
-              {status?.text ?? "Lun–Vie 9:00–20:00 · Sáb 9:00–14:00"}
-            </span>
-          </span>
-          <span className="hidden items-center gap-6 sm:flex">
-            <a href="#contacto" className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
-              <MapPin className="size-3.5" /> {ADDRESS}
-            </a>
-            <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
-              <Phone className="size-3.5" /> {PHONE_DISPLAY}
-            </a>
-          </span>
-        </div>
-      </div>
-
       <header
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
