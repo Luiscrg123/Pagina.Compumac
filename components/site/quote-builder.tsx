@@ -34,11 +34,12 @@ function StepLabel({ n, children, muted }: { n: number; children: React.ReactNod
   )
 }
 
-export function QuoteBuilder() {
+export function QuoteBuilder({ defaultDevice }: { defaultDevice?: DeviceKey }) {
   const [chosen, setDevice] = useState<DeviceKey | null>(null)
   // Un anuncio puede llegar con ?equipo=laptop: ese equipo queda elegido.
+  // En la pagina de un servicio, su equipo viene elegido de entrada.
   const urlDevice = useUrlDevice()
-  const device = chosen ?? urlDevice
+  const device = chosen ?? urlDevice ?? defaultDevice ?? null
   const [problems, setProblems] = useState<string[]>([])
   const [brand, setBrand] = useState("")
   const [model, setModel] = useState("")

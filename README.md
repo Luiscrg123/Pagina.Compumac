@@ -15,7 +15,8 @@ Web de **Compumac E.I.R.L.**: servicio técnico de laptops, computadoras e impre
 ## Estructura
 
 ```
-app/                 layout (metadata, fuentes) y página principal
+app/                 layout (metadata, fuentes), página principal y sitemap
+app/reparacion-de-laptops/  página de destino para anuncios de laptops
 components/site/     secciones de la web (hero, cotizador, reparaciones, etc.)
 components/ui/       componentes de shadcn/ui y Magic UI
 lib/site.ts          datos del negocio: teléfono, horario, servicios, marcas, preguntas

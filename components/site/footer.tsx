@@ -1,16 +1,17 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Phone } from "lucide-react"
 import { WhatsAppIcon } from "@/components/site/icons"
-import { ADDRESS, FACEBOOK, FOUNDED, INSTAGRAM, PHONE_DISPLAY, PHONE_TEL, whatsappLink } from "@/lib/site"
+import { ADDRESS, FACEBOOK, FOUNDED, INSTAGRAM, LAPTOP_PAGE, PHONE_DISPLAY, PHONE_TEL, whatsappLink } from "@/lib/site"
 
 export function Footer() {
   return (
     <footer data-lugar="pie" className="bg-ink text-sm text-slate-400">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 pt-16 pb-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
-          <a href="#top" aria-label="Compumac, inicio" className="inline-flex rounded-2xl bg-white px-4 py-3">
+          <Link href="/#top" aria-label="Compumac, inicio" className="inline-flex rounded-2xl bg-white px-4 py-3">
             <Image src="/img/logo-compumac.webp" alt="Compumac E.I.R.L." width={600} height={199} unoptimized className="h-11 w-auto" />
-          </a>
+          </Link>
           <p className="mt-5 max-w-xs leading-relaxed">
             Servicio técnico de laptops, computadoras e impresoras en Piura desde {FOUNDED}.
           </p>
@@ -18,17 +19,21 @@ export function Footer() {
         <div>
           <h3 className="mb-4 text-sm font-bold text-white">Reparaciones</h3>
           <ul className="space-y-2.5">
-            {["Impresoras", "Laptops", "Computadoras"].map((x) => (
-              <li key={x}>
-                <a href="#reparaciones" className="transition-colors hover:text-white">
-                  {x}
-                </a>
+            {[
+              { label: "Impresoras", href: "/#reparaciones" },
+              { label: "Laptops", href: LAPTOP_PAGE },
+              { label: "Computadoras", href: "/#reparaciones" },
+            ].map((x) => (
+              <li key={x.label}>
+                <Link href={x.href} className="transition-colors hover:text-white">
+                  {x.label}
+                </Link>
               </li>
             ))}
             <li>
-              <a href="#empresas" className="transition-colors hover:text-white">
+              <Link href="/#empresas" className="transition-colors hover:text-white">
                 Empresas
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

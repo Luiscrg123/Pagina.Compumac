@@ -12,6 +12,13 @@ export const INSTAGRAM = "https://www.instagram.com/compumac.piura/"
 export const SITE_URL = "https://compumacperu.com"
 export const FOUNDED = 2004
 
+// Perfil de Empresa en Google. La nota y el numero de resenas se actualizan a mano.
+export const GOOGLE_RATING = "4.9"
+export const GOOGLE_REVIEWS = 27
+export const GOOGLE_PROFILE_URL = "https://www.google.com/maps/search/?api=1&query=Compumac+Jr.+Hu%C3%A1nuco+804+Piura"
+
+export const LAPTOP_PAGE = "/reparacion-de-laptops"
+
 export function whatsappLink(text?: string) {
   return `https://wa.me/${WHATSAPP}${text ? `?text=${encodeURIComponent(text)}` : ""}`
 }
@@ -131,7 +138,35 @@ export const DEVICES: Record<
   },
 }
 
-export const BRANDS = ["Epson", "HP", "Canon", "Brother", "Lenovo", "Dell", "Asus", "Acer", "Apple"]
+// Preguntas de la pagina de laptops.
+export const LAPTOP_FAQS = [
+  {
+    q: "¿Cuánto cuesta reparar mi laptop?",
+    a: "Depende de la falla y del repuesto. Primero hacemos el diagnóstico gratis y te damos el presupuesto; reparamos solo si estás de acuerdo.",
+  },
+  {
+    q: "¿Cuánto demora la reparación?",
+    a: "Muchas reparaciones quedan listas el mismo día. Si hace falta un repuesto, te decimos el tiempo exacto junto con el presupuesto.",
+  },
+  {
+    q: "Se mojó mi laptop, ¿qué hago?",
+    a: "Apágala de inmediato, desconecta el cargador y no intentes prenderla para ver si funciona. Tráela lo antes posible: el líquido sigue dañando la placa con las horas.",
+  },
+  {
+    q: "¿Reparan MacBook?",
+    a: "Sí. Reparamos MacBook y laptops HP, Lenovo, Dell, Asus y Acer.",
+  },
+  {
+    q: "¿La reparación tiene garantía?",
+    a: "Sí, nuestras reparaciones tienen garantía. Consulta el plazo según el tipo de reparación.",
+  },
+  {
+    q: "¿Cuál es su horario?",
+    a: "De lunes a viernes de 9:00 a. m. a 8:00 p. m., y los sábados de 9:00 a. m. a 2:00 p. m. Estamos en Jr. Huánuco 804, Piura.",
+  },
+]
+
+export const BRANDS =["Epson", "HP", "Canon", "Brother", "Lenovo", "Dell", "Asus", "Acer", "Apple"]
 
 export const FAQS = [
   {

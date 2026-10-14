@@ -58,6 +58,8 @@ function describeClick(a: HTMLAnchorElement): { event: string; props: Record<str
   if (href.includes("facebook.com")) return { event: "redes", props: { lugar, red: "facebook" } }
   if (href.includes("instagram.com")) return { event: "redes", props: { lugar, red: "instagram" } }
   if (href.startsWith("#") && href.length > 1) return { event: "navegacion", props: { lugar, destino: href.slice(1) } }
+  // Enlace a otra pagina de la web, ej. "/reparacion-de-laptops" o "/#empresas".
+  if (href.startsWith("/")) return { event: "navegacion", props: { lugar, destino: href } }
   return null
 }
 

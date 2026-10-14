@@ -4,12 +4,12 @@ import { BlurFade } from "@/components/ui/blur-fade"
 import { SectionHeading } from "@/components/site/section-heading"
 import { FAQS, whatsappLink } from "@/lib/site"
 
-export function Faq() {
+export function Faq({ items = FAQS, title = "Lo que más nos preguntan" }: { items?: typeof FAQS; title?: string }) {
   return (
     <section id="preguntas" className="scroll-mt-24 py-24 sm:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div>
-          <SectionHeading align="left" eyebrow="Preguntas frecuentes" title="Lo que más nos preguntan" />
+          <SectionHeading align="left" eyebrow="Preguntas frecuentes" title={title} />
           <BlurFade inView delay={0.1}>
             <div className="mt-8 rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200/70">
               <p className="font-bold text-ink">¿Tienes otra duda?</p>
@@ -28,7 +28,7 @@ export function Faq() {
 
         <BlurFade inView delay={0.1}>
           <Accordion type="single" collapsible defaultValue="item-0" className="gap-3">
-            {FAQS.map((f, i) => (
+            {items.map((f, i) => (
               <AccordionItem
                 key={f.q}
                 value={`item-${i}`}

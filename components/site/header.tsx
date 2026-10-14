@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -15,7 +16,10 @@ const NAV = [
   { href: "#contacto", label: "Contacto" },
 ]
 
-export function Header() {
+type NavItem = { href: string; label: string }
+
+// `nav` son anclas de la misma pagina; `homeHref` es a donde lleva el logo.
+export function Header({ nav = NAV, homeHref = "#top" }: { nav?: NavItem[]; homeHref?: string }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pendingHref = useRef<string | null>(null)
@@ -56,7 +60,7 @@ export function Header() {
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center gap-6 px-5 py-3 xl:gap-8">
-          <a href="#top" aria-label="Compumac, inicio" className="mr-auto flex items-center gap-3.5">
+          <Link href={homeHref} aria-label="Compumac, inicio" className="mr-auto flex items-center gap-3.5">
             <Image
               src="/img/logo-compumac.webp"
               alt="Compumac E.I.R.L."
@@ -71,10 +75,10 @@ export function Header() {
               <br />
               técnico
             </span>
-          </a>
+          </Link>
 
           <nav aria-label="Principal" className="hidden items-center gap-1 lg:flex">
-            {NAV.map((item) => (
+            {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -117,7 +121,7 @@ export function Header() {
               className="overflow-hidden border-t border-slate-100 lg:hidden"
             >
               <div className="mx-auto flex max-w-7xl flex-col px-5 py-3">
-                {NAV.map((item) => (
+                {nav.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}

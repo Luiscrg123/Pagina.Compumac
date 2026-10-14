@@ -2,12 +2,13 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { AnimatePresence, motion } from "motion/react"
 import { ArrowRight, Check, Laptop, Monitor, Printer } from "lucide-react"
 import { SectionHeading } from "@/components/site/section-heading"
 import { highlightQuote, pickDevice } from "@/components/site/quote-builder"
 import { cn } from "@/lib/utils"
-import { DEVICES, type DeviceKey } from "@/lib/site"
+import { DEVICES, LAPTOP_PAGE, type DeviceKey } from "@/lib/site"
 import { useUrlDevice } from "@/lib/use-url-device"
 
 const TABS: { key: DeviceKey; icon: typeof Printer }[] = [
@@ -100,17 +101,24 @@ export function Repairs() {
                     </motion.li>
                   ))}
                 </ul>
-                <a
-                  href="#cotizar"
-                  onClick={() => {
-                    pickDevice(active)
-                    highlightQuote()
-                  }}
-                  className="group mt-auto inline-flex w-fit items-center gap-2 pt-10 font-bold text-brand"
-                >
-                  Cotizar {d.label.toLowerCase()}
-                  <ArrowRight className="size-4.5 transition-transform group-hover:translate-x-1" />
-                </a>
+                <div className="mt-auto flex flex-wrap items-center gap-x-8 gap-y-3 pt-10">
+                  <a
+                    href="#cotizar"
+                    onClick={() => {
+                      pickDevice(active)
+                      highlightQuote()
+                    }}
+                    className="group inline-flex w-fit items-center gap-2 font-bold text-brand"
+                  >
+                    Cotizar {d.label.toLowerCase()}
+                    <ArrowRight className="size-4.5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                  {active === "laptop" && (
+                    <Link href={LAPTOP_PAGE} className="font-semibold text-slate-500 underline-offset-4 hover:text-ink hover:underline">
+                      Todo sobre reparación de laptops
+                    </Link>
+                  )}
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>

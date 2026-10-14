@@ -1,12 +1,38 @@
-import { ArrowRight, Check, Droplets, Phone } from "lucide-react"
+import { ArrowRight, Check, Droplets, Phone, Star } from "lucide-react"
 import { DotPattern } from "@/components/ui/dot-pattern"
 import { WhatsAppIcon } from "@/components/site/icons"
 import { QuoteBuilder } from "@/components/site/quote-builder"
-import { FOUNDED, PHONE_DISPLAY, PHONE_TEL, whatsappLink } from "@/lib/site"
+import {
+  FOUNDED,
+  GOOGLE_PROFILE_URL,
+  GOOGLE_RATING,
+  GOOGLE_REVIEWS,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  whatsappLink,
+  type DeviceKey,
+} from "@/lib/site"
 
 const CHECKS = ["Diagnóstico gratis", "Reparaciones con garantía", "Muchas, el mismo día", `Técnicos desde ${FOUNDED}`]
 
-export function Hero() {
+// La portada usa los textos por defecto; la pagina de un servicio pasa los suyos.
+export function Hero({
+  title = (
+    <>
+      Reparamos tu <span className="text-brand">laptop, PC o impresora</span> en Piura
+    </>
+  ),
+  text = "Diagnóstico gratis, presupuesto antes de reparar y reparaciones con garantía. Muchas quedan listas el mismo día.",
+  checks = CHECKS,
+  whatsappMessage = "Hola Compumac, quiero cotizar una reparación.",
+  defaultDevice,
+}: {
+  title?: React.ReactNode
+  text?: string
+  checks?: string[]
+  whatsappMessage?: string
+  defaultDevice?: DeviceKey
+}) {
   return (
     <section data-lugar="inicio" className="relative -mt-[4.5rem] overflow-hidden pt-[4.5rem] sm:-mt-20 sm:pt-20">
       {/* Fondo: puntos que se desvanecen y un brillo rojo suave */}
@@ -22,27 +48,37 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pt-12 pb-20 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:pt-20 lg:pb-28">
         <div>
           <div className="hero-in" style={{ "--delay": "0.05s" } as React.CSSProperties}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 px-3.5 py-1.5 text-[0.8rem] font-bold text-brand-dark shadow-sm backdrop-blur">
-              <span className="size-1.5 rounded-full bg-brand" />
-              Servicio técnico en Piura desde {FOUNDED}
-            </span>
+            <div className="flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 px-3.5 py-1.5 text-[0.8rem] font-bold text-brand-dark shadow-sm backdrop-blur">
+                <span className="size-1.5 rounded-full bg-brand" />
+                Servicio técnico en Piura desde {FOUNDED}
+              </span>
+              <a
+                href={GOOGLE_PROFILE_URL}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-white/80 px-3.5 py-1.5 text-[0.8rem] font-bold text-ink shadow-sm backdrop-blur transition-colors hover:border-amber-300"
+              >
+                <Star className="size-3.5 fill-amber-400 text-amber-400" />
+                {GOOGLE_RATING} en Google
+                <span className="font-semibold text-slate-500">· {GOOGLE_REVIEWS} reseñas</span>
+              </a>
+            </div>
           </div>
 
           <div className="hero-in" style={{ "--delay": "0.15s" } as React.CSSProperties}>
             <h1 className="mt-6 text-[2.6rem] leading-[1.05] font-extrabold tracking-[-0.035em] sm:text-6xl lg:text-[4.1rem]">
-              Reparamos tu <span className="text-brand">laptop, PC o impresora</span> en Piura
+              {title}
             </h1>
           </div>
 
           <div className="hero-in" style={{ "--delay": "0.25s" } as React.CSSProperties}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-              Diagnóstico gratis, presupuesto antes de reparar y reparaciones con garantía. Muchas quedan listas el mismo día.
-            </p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">{text}</p>
           </div>
 
           <div className="hero-in" style={{ "--delay": "0.35s" } as React.CSSProperties}>
             <ul className="mt-7 grid gap-x-8 gap-y-3 sm:grid-cols-2 sm:max-w-lg">
-              {CHECKS.map((c) => (
+              {checks.map((c) => (
                 <li key={c} className="flex items-center gap-2.5 font-semibold text-ink">
                   <span className="grid size-5.5 place-items-center rounded-full bg-emerald-50 text-emerald-600">
                     <Check className="size-3.5" strokeWidth={3} />
@@ -56,7 +92,7 @@ export function Hero() {
           <div className="hero-in" style={{ "--delay": "0.45s" } as React.CSSProperties}>
             <div className="mt-9 flex flex-wrap gap-3">
               <a
-                href={whatsappLink("Hola Compumac, quiero cotizar una reparación.")}
+                href={whatsappLink(whatsappMessage)}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex h-13 items-center gap-2.5 rounded-full bg-brand px-7 font-bold text-white shadow-xl shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark"
@@ -91,7 +127,7 @@ export function Hero() {
         </div>
 
         <div className="hero-in" style={{ "--delay": "0.3s" } as React.CSSProperties}>
-          <QuoteBuilder />
+          <QuoteBuilder defaultDevice={defaultDevice} />
         </div>
       </div>
     </section>
