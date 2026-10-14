@@ -87,7 +87,7 @@ export function Contact() {
 
 export function CtaBand() {
   return (
-    <section className="relative overflow-hidden">
+    <section data-lugar="franja_final" className="relative overflow-hidden">
       <Image src="/img/fotos/placa-roja.webp" alt="" fill sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand/90 to-brand-dark/80" />
       <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-5 py-20 sm:py-24 lg:flex-row lg:items-center lg:justify-between">

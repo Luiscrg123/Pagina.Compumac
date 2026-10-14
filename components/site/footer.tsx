@@ -5,7 +5,7 @@ import { ADDRESS, FACEBOOK, FOUNDED, INSTAGRAM, PHONE_DISPLAY, PHONE_TEL, whatsa
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-sm text-slate-400">
+    <footer data-lugar="pie" className="bg-ink text-sm text-slate-400">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 pt-16 pb-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
           <a href="#top" aria-label="Compumac, inicio" className="inline-flex rounded-2xl bg-white px-4 py-3">
@@ -81,12 +81,14 @@ export function FloatingContact() {
         target="_blank"
         rel="noopener"
         aria-label="Escríbenos por WhatsApp"
+        data-lugar="boton_flotante"
         className="fixed right-6 bottom-6 z-50 hidden size-15 place-items-center rounded-full bg-whatsapp text-white shadow-[0_12px_30px_-8px_rgb(37_211_102/0.6)] transition-transform hover:scale-110 sm:grid"
       >
         <WhatsAppIcon className="size-7.5" />
       </a>
       <nav
         aria-label="Contacto rápido"
+        data-lugar="barra_celular"
         className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-slate-200 bg-white/95 shadow-[0_-8px_24px_rgb(15_23_42/0.08)] backdrop-blur sm:hidden"
       >
         <a href={`tel:${PHONE_TEL}`} className="flex items-center justify-center gap-2 py-4 font-bold text-ink">

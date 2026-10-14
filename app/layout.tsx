@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Plus_Jakarta_Sans } from "next/font/google"
 import { MotionProvider } from "@/components/site/motion-provider"
+import { Analytics } from "@/components/site/analytics"
 import { SITE_URL } from "@/lib/site"
 import "./globals.css"
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="es" className={`${jakarta.variable} h-full`}>
       <body className="min-h-full">
         <MotionProvider>{children}</MotionProvider>
+        <Analytics />
       </body>
     </html>
   )

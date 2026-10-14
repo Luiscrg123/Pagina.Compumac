@@ -6,6 +6,7 @@ import { Laptop, Monitor, Printer } from "lucide-react"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { WhatsAppIcon } from "@/components/site/icons"
 import { cn } from "@/lib/utils"
+import { track } from "@/lib/analytics"
 import { DEVICES, whatsappLink, type DeviceKey } from "@/lib/site"
 
 export const PICK_DEVICE_EVENT = "compumac:pick-device"
@@ -40,6 +41,7 @@ export function QuoteBuilder() {
   const formRef = useRef<HTMLFormElement>(null)
 
   const choose = (key: DeviceKey) => {
+    if (key !== device) track("equipo", { equipo: DEVICES[key].label })
     setDevice(key)
     setProblems([])
     setBrand("")
@@ -96,6 +98,11 @@ export function QuoteBuilder() {
       lines.push(`Equipo: ${equipo}`)
       if (problems.length) lines.push(`Falla: ${problems.join(", ")}`)
     }
+    track("cotizacion", {
+      equipo: device ? DEVICES[device].label : "sin elegir",
+      falla: problems.join(", ") || "sin elegir",
+      marca: brand || "sin elegir",
+    })
     window.open(whatsappLink(lines.join("\n")), "_blank", "noopener")
   }
 

@@ -67,7 +67,7 @@ export function Business() {
         </div>
       </section>
 
-      <section className="bg-slate-50/70 py-12">
+      <section data-lugar="tambien_vendemos" className="bg-slate-50/70 py-12">
         <BlurFade inView className="mx-auto max-w-7xl px-5">
           <div className="flex flex-col gap-5 rounded-3xl border border-slate-200/80 bg-white p-7 shadow-sm sm:flex-row sm:items-center sm:p-8">
             <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-brand-50 text-brand">

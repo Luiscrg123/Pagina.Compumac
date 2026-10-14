@@ -10,7 +10,7 @@ const tile =
 
 export function WhyUs() {
   return (
-    <section className="py-24 sm:py-28">
+    <section data-lugar="por_que_nosotros" className="py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-5">
         <SectionHeading eyebrow="Por qué Compumac" title="Tu equipo en manos de técnicos con experiencia">
           Te decimos qué tiene tu equipo y cuánto cuesta repararlo antes de empezar la reparación.

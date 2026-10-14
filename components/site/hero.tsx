@@ -8,7 +8,7 @@ const CHECKS = ["Diagnóstico gratis", "Reparaciones con garantía", "Muchas, el
 
 export function Hero() {
   return (
-    <section className="relative -mt-[4.5rem] overflow-hidden pt-[4.5rem] sm:-mt-20 sm:pt-20">
+    <section data-lugar="inicio" className="relative -mt-[4.5rem] overflow-hidden pt-[4.5rem] sm:-mt-20 sm:pt-20">
       {/* Fondo: puntos que se desvanecen y un brillo rojo suave */}
       <DotPattern
         width={22}

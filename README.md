@@ -50,3 +50,22 @@ Fotos de [Unsplash](https://unsplash.com) (licencia de Unsplash, uso comercial g
 | `diagnostico` | [Andrey Matveev](https://unsplash.com/photos/V_ESJ2MM2Us) |
 | `empresas` | [Stanislav Staritsyn](https://unsplash.com/photos/j7cOdWrbKUI) |
 | `placa-roja` | [Michael Dziedzic](https://unsplash.com/photos/aQYgUYwnCsM) |
+
+## Estadísticas y anuncios
+
+- **Panel privado:** [Umami](https://umami.is) en el mismo VPS (plantilla de Dokploy), en `panel.compumacperu.com`. `compumacperu.com/panel` redirige ahí (ver `nginx.conf`). Solo entra quien tenga usuario en Umami.
+- **Anuncios:** Google Analytics 4 (para Google Ads) y Pixel de Meta (para Facebook/Instagram Ads).
+- Los IDs van en `lib/analytics.ts`; si un ID está vacío, esa herramienta no se carga. Solo se mide en `compumacperu.com`, nunca en desarrollo.
+- `components/site/analytics.tsx` carga los scripts y registra cada clic. Eventos:
+
+| Evento | Cuándo | Datos |
+| --- | --- | --- |
+| `whatsapp` | clic en cualquier botón de WhatsApp | `lugar` |
+| `llamar` | clic en un botón de llamar | `lugar` |
+| `cotizacion` | envío del cotizador | `equipo`, `falla`, `marca` |
+| `equipo` | elige un equipo en el cotizador | `equipo` |
+| `como_llegar` | abre el mapa | `lugar` |
+| `redes` | clic en Facebook o Instagram | `lugar`, `red` |
+| `navegacion` | clic en un enlace interno (menú, "Cotizar…") | `lugar`, `destino` |
+
+`lugar` es la zona de la página: el `id` de la sección o el `data-lugar` del contenedor (`inicio`, `menu`, `boton_flotante`, `barra_celular`, `franja_final`, `pie`…). En Meta, `whatsapp` y `llamar` se envían como el evento estándar `Contact` y `cotizacion` como `Lead`.
