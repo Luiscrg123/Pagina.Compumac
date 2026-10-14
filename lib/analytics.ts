@@ -3,7 +3,7 @@
 
 export const UMAMI_SRC = "https://panel.compumacperu.com/script.js"
 export const UMAMI_WEBSITE_ID = "03d41ee6-ca61-48fa-b5fd-df91f25bd660"
-export const GA_ID = "" // Google Analytics 4, ej. "G-ABC123XYZ"
+export const GA_ID = "G-W2ZJC9P5N2" // Google Analytics 4
 export const META_PIXEL_ID = "" // Pixel de Meta, solo numeros
 
 // Solo se mide en la web publicada, no en desarrollo.
