@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { highlightQuote } from "@/components/site/quote-builder"
+import { MovedBanner } from "@/components/site/moved-banner"
 
 const NAV = [
   { href: "#reparaciones", label: "Reparaciones" },
@@ -50,6 +51,7 @@ export function Header({ nav = NAV, homeHref = "#top" }: { nav?: NavItem[]; home
 
   return (
     <>
+      <MovedBanner />
       <header
         data-lugar="menu"
         className={cn(
