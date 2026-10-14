@@ -13,7 +13,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 const title = "Servicio técnico de laptops, PCs e impresoras en Piura | Compumac"
 const description =
-  "Reparación de laptops, computadoras e impresoras en Piura. Diagnóstico gratis, reparaciones con garantía y muchas listas el mismo día. Desde 2004, ahora en Jr. Huánuco 804."
+  "Reparación de laptops, computadoras e impresoras en Piura. Reparamos laptops mojadas y que no prenden. Diagnóstico gratis, reparaciones con garantía y muchas listas el mismo día. Desde 2004, ahora en Jr. Huánuco 804."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

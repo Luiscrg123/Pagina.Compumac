@@ -82,7 +82,8 @@ export const DEVICES: Record<
     photo: "/img/fotos/laptop.webp",
     photoAlt: "Manos reparando una laptop abierta con un destornillador",
     repairs: [
-      "No enciende o no carga",
+      "No prende para nada o no carga",
+      "Se le cayó agua, café u otro líquido",
       "Pantalla rota o sin imagen",
       "Teclado o touchpad que falla",
       "Lenta, con virus o para formatear",
@@ -90,7 +91,8 @@ export const DEVICES: Record<
       "Mejora a disco SSD y más RAM",
     ],
     quickProblems: [
-      "No enciende o no carga",
+      "No prende para nada",
+      "Se le cayó líquido",
       "Pantalla rota o sin imagen",
       "Teclado o touchpad",
       "Lenta o con virus",
@@ -135,6 +137,14 @@ export const FAQS = [
   {
     q: "¿Cuánto cuesta el diagnóstico?",
     a: "Es gratis. Revisamos tu equipo y te damos el presupuesto sin compromiso.",
+  },
+  {
+    q: "¿Reparan laptops a las que se les cayó agua?",
+    a: "Sí. Apágala de inmediato, desconecta el cargador y no intentes prenderla para probar. Tráela lo antes posible: la revisamos gratis y te decimos cuánto cuesta repararla.",
+  },
+  {
+    q: "Mi laptop no prende para nada, ¿la pueden reparar?",
+    a: "Sí, aunque no prenda ninguna luz ni cargue. La revisamos a fondo hasta encontrar la falla y te damos el presupuesto sin compromiso.",
   },
   {
     q: "¿Cuánto demora una reparación?",

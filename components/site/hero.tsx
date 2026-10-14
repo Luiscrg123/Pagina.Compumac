@@ -1,4 +1,4 @@
-import { Check, Phone } from "lucide-react"
+import { ArrowRight, Check, Droplets, Phone } from "lucide-react"
 import { DotPattern } from "@/components/ui/dot-pattern"
 import { WhatsAppIcon } from "@/components/site/icons"
 import { QuoteBuilder } from "@/components/site/quote-builder"
@@ -72,6 +72,21 @@ export function Hero() {
                 {PHONE_DISPLAY}
               </a>
             </div>
+          </div>
+
+          <div className="hero-in" style={{ "--delay": "0.55s" } as React.CSSProperties}>
+            <a
+              href="#emergencias"
+              className="group mt-7 flex w-fit items-center gap-3 rounded-2xl border border-sky-200 bg-sky-50/80 py-2.5 pr-4 pl-2.5 text-[0.95rem] font-semibold text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-300"
+            >
+              <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-sky-500 text-white">
+                <Droplets className="size-5" />
+              </span>
+              <span>
+                ¿Se mojó tu laptop o no prende para nada? <span className="font-extrabold text-brand">Sí la reparamos</span>
+              </span>
+              <ArrowRight className="size-4.5 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
 

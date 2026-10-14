@@ -1,6 +1,7 @@
 import { Header } from "@/components/site/header"
 import { Hero } from "@/components/site/hero"
 import { Brands } from "@/components/site/brands"
+import { LaptopEmergencies } from "@/components/site/laptop-emergencies"
 import { WhyUs } from "@/components/site/why-us"
 import { Repairs } from "@/components/site/repairs"
 import { Process } from "@/components/site/process"
@@ -15,7 +16,7 @@ const jsonLd = {
   "@type": "ComputerStore",
   name: "Compumac",
   legalName: "Compumac E.I.R.L.",
-  description: `Servicio técnico de laptops, computadoras e impresoras en Piura desde ${FOUNDED}. Diagnóstico gratis y reparaciones con garantía.`,
+  description: `Servicio técnico de laptops, computadoras e impresoras en Piura desde ${FOUNDED}. Reparamos laptops mojadas y que no prenden. Diagnóstico gratis y reparaciones con garantía.`,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/img/logo-compumac.webp`,
   image: `${SITE_URL}/img/og-compumac.png`,
@@ -43,6 +44,7 @@ export default function Home() {
       <main id="top">
         <Hero />
         <Brands />
+        <LaptopEmergencies />
         <WhyUs />
         <Repairs />
         <Process />
