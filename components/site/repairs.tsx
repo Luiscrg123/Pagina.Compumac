@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/site/section-heading"
 import { highlightQuote, pickDevice } from "@/components/site/quote-builder"
 import { cn } from "@/lib/utils"
 import { DEVICES, type DeviceKey } from "@/lib/site"
+import { useUrlDevice } from "@/lib/use-url-device"
 
 const TABS: { key: DeviceKey; icon: typeof Printer }[] = [
   { key: "impresora", icon: Printer },
@@ -16,7 +17,9 @@ const TABS: { key: DeviceKey; icon: typeof Printer }[] = [
 ]
 
 export function Repairs() {
-  const [active, setActive] = useState<DeviceKey>("impresora")
+  const [picked, setActive] = useState<DeviceKey | null>(null)
+  const urlDevice = useUrlDevice()
+  const active = picked ?? urlDevice ?? "impresora"
   const d = DEVICES[active]
 
   return (

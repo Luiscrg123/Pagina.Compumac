@@ -8,6 +8,7 @@ import { WhatsAppIcon } from "@/components/site/icons"
 import { cn } from "@/lib/utils"
 import { track } from "@/lib/analytics"
 import { DEVICES, whatsappLink, type DeviceKey } from "@/lib/site"
+import { useUrlDevice } from "@/lib/use-url-device"
 
 export const PICK_DEVICE_EVENT = "compumac:pick-device"
 
@@ -34,7 +35,10 @@ function StepLabel({ n, children, muted }: { n: number; children: React.ReactNod
 }
 
 export function QuoteBuilder() {
-  const [device, setDevice] = useState<DeviceKey | null>(null)
+  const [chosen, setDevice] = useState<DeviceKey | null>(null)
+  // Un anuncio puede llegar con ?equipo=laptop: ese equipo queda elegido.
+  const urlDevice = useUrlDevice()
+  const device = chosen ?? urlDevice
   const [problems, setProblems] = useState<string[]>([])
   const [brand, setBrand] = useState("")
   const [model, setModel] = useState("")

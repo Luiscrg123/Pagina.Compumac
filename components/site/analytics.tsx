@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { GA_ID, META_PIXEL_ID, TRACKED_HOSTS, UMAMI_SRC, UMAMI_WEBSITE_ID, track } from "@/lib/analytics"
+import { GA_ID, GOOGLE_ADS_ID, META_PIXEL_ID, TRACKED_HOSTS, UMAMI_SRC, UMAMI_WEBSITE_ID, track } from "@/lib/analytics"
 
 function addScript(src: string, attrs: Record<string, string> = {}) {
   const s = document.createElement("script")
@@ -15,6 +15,7 @@ function loadUmami() {
   addScript(UMAMI_SRC, { "data-website-id": UMAMI_WEBSITE_ID, "data-domains": TRACKED_HOSTS.join(",") })
 }
 
+// Un solo gtag.js sirve para Analytics y para Google Ads.
 function loadGoogle() {
   window.dataLayer = window.dataLayer || []
   // gtag necesita el objeto `arguments`, no un array.
@@ -23,8 +24,9 @@ function loadGoogle() {
     window.dataLayer!.push(arguments)
   }
   window.gtag("js", new Date())
-  window.gtag("config", GA_ID)
-  addScript(`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`)
+  if (GA_ID) window.gtag("config", GA_ID)
+  if (GOOGLE_ADS_ID) window.gtag("config", GOOGLE_ADS_ID)
+  addScript(`https://www.googletagmanager.com/gtag/js?id=${GA_ID || GOOGLE_ADS_ID}`)
 }
 
 function loadMeta() {
@@ -63,7 +65,7 @@ export function Analytics() {
   useEffect(() => {
     if (TRACKED_HOSTS.includes(window.location.hostname)) {
       if (UMAMI_WEBSITE_ID) loadUmami()
-      if (GA_ID) loadGoogle()
+      if (GA_ID || GOOGLE_ADS_ID) loadGoogle()
       if (META_PIXEL_ID) loadMeta()
     }
 
