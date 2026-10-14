@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { Laptop, Monitor, Printer } from "lucide-react"
 import { BorderBeam } from "@/components/ui/border-beam"
@@ -10,8 +10,15 @@ import { DEVICES, whatsappLink, type DeviceKey } from "@/lib/site"
 
 export const PICK_DEVICE_EVENT = "compumac:pick-device"
 
+export const HIGHLIGHT_EVENT = "compumac:highlight-quote"
+
 export function pickDevice(device: DeviceKey) {
   window.dispatchEvent(new CustomEvent<DeviceKey>(PICK_DEVICE_EVENT, { detail: device }))
+}
+
+// Llamar al hacer clic en un enlace a #cotizar: el formulario destella cuando termina el scroll.
+export function highlightQuote() {
+  window.dispatchEvent(new Event(HIGHLIGHT_EVENT))
 }
 
 const DEVICE_ICONS: Record<DeviceKey, typeof Printer> = { impresora: Printer, laptop: Laptop, pc: Monitor }
@@ -30,6 +37,7 @@ export function QuoteBuilder() {
   const [problems, setProblems] = useState<string[]>([])
   const [brand, setBrand] = useState("")
   const [model, setModel] = useState("")
+  const formRef = useRef<HTMLFormElement>(null)
 
   const choose = (key: DeviceKey) => {
     setDevice(key)
@@ -47,6 +55,34 @@ export function QuoteBuilder() {
     }
     window.addEventListener(PICK_DEVICE_EVENT, onPick)
     return () => window.removeEventListener(PICK_DEVICE_EVENT, onPick)
+  }, [])
+
+  useEffect(() => {
+    let timer: number | undefined
+    const flash = () => {
+      const form = formRef.current
+      if (!form) return
+      form.classList.remove("quote-flash")
+      void form.offsetWidth // reinicia la animación si ya se estaba mostrando
+      form.classList.add("quote-flash")
+      form.querySelector<HTMLButtonElement>('button[aria-pressed="true"], button')?.focus({ preventScroll: true })
+    }
+    // Espera a que el scroll se detenga para que el destello se vea.
+    const onHighlight = () => {
+      window.clearTimeout(timer)
+      let last = window.scrollY
+      const check = () => {
+        if (window.scrollY === last) return flash()
+        last = window.scrollY
+        timer = window.setTimeout(check, 120)
+      }
+      timer = window.setTimeout(check, 120)
+    }
+    window.addEventListener(HIGHLIGHT_EVENT, onHighlight)
+    return () => {
+      window.clearTimeout(timer)
+      window.removeEventListener(HIGHLIGHT_EVENT, onHighlight)
+    }
   }, [])
 
   const toggleProblem = (p: string) =>
@@ -67,7 +103,9 @@ export function QuoteBuilder() {
 
   return (
     <form
+      ref={formRef}
       id="cotizar"
+      onAnimationEnd={(e) => e.target === e.currentTarget && e.currentTarget.classList.remove("quote-flash")}
       onSubmit={submit}
       aria-labelledby="quote-title"
       className="relative scroll-mt-28 overflow-hidden rounded-[1.75rem] bg-white p-6 shadow-[0_30px_80px_-20px_rgb(15_23_42/0.25)] ring-1 ring-slate-200/80 sm:p-7"

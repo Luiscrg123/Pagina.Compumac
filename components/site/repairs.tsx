@@ -5,7 +5,7 @@ import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
 import { ArrowRight, Check, Laptop, Monitor, Printer } from "lucide-react"
 import { SectionHeading } from "@/components/site/section-heading"
-import { pickDevice } from "@/components/site/quote-builder"
+import { highlightQuote, pickDevice } from "@/components/site/quote-builder"
 import { cn } from "@/lib/utils"
 import { DEVICES, type DeviceKey } from "@/lib/site"
 
@@ -99,7 +99,10 @@ export function Repairs() {
                 </ul>
                 <a
                   href="#cotizar"
-                  onClick={() => pickDevice(active)}
+                  onClick={() => {
+                    pickDevice(active)
+                    highlightQuote()
+                  }}
                   className="group mt-auto inline-flex w-fit items-center gap-2 pt-10 font-bold text-brand"
                 >
                   Cotizar {d.label.toLowerCase()}

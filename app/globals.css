@@ -94,6 +94,23 @@
   .hero-in { animation: none; }
 }
 
+/* Destello del cotizador al llegar desde un botón "Cotizar": si ya estaba
+   a la vista, el scroll no se nota y parecería que el botón no hace nada. */
+@keyframes quote-flash {
+  from { outline-color: rgb(224 0 0 / 0.85); outline-offset: 0; }
+  to { outline-color: rgb(224 0 0 / 0); outline-offset: 14px; }
+}
+.quote-flash {
+  outline: 3px solid transparent;
+  animation: quote-flash 0.8s ease-out 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes quote-flash {
+    from { outline-color: rgb(224 0 0 / 0.85); outline-offset: 4px; }
+    to { outline-color: rgb(224 0 0 / 0); outline-offset: 4px; }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

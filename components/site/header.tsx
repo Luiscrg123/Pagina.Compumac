@@ -5,6 +5,7 @@ import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { highlightQuote } from "@/components/site/quote-builder"
 
 const NAV = [
   { href: "#reparaciones", label: "Reparaciones" },
@@ -33,6 +34,7 @@ export function Header() {
     if (!href) return
     history.pushState(null, "", href)
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+    if (href === "#cotizar") highlightQuote()
   }
 
   useEffect(() => {
@@ -84,6 +86,7 @@ export function Header() {
 
           <a
             href="#cotizar"
+            onClick={highlightQuote}
             className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-bold whitespace-nowrap text-white shadow-lg shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/30 lg:inline-flex"
           >
             Cotizar reparación
