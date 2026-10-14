@@ -35,6 +35,7 @@ export function QuoteBuilder() {
     setDevice(key)
     setProblems([])
     setBrand("")
+    setModel("")
   }
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export function QuoteBuilder() {
       setDevice((e as CustomEvent<DeviceKey>).detail)
       setProblems([])
       setBrand("")
+      setModel("")
     }
     window.addEventListener(PICK_DEVICE_EVENT, onPick)
     return () => window.removeEventListener(PICK_DEVICE_EVENT, onPick)

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
@@ -17,6 +17,23 @@ const NAV = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pendingHref = useRef<string | null>(null)
+
+  // Cerrar el menú cambia la altura del header y corta el scroll suave,
+  // así que se navega cuando el menú termina de cerrarse.
+  const goFromMenu = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    pendingHref.current = e.currentTarget.getAttribute("href")
+    setMenuOpen(false)
+  }
+
+  const scrollToPending = () => {
+    const href = pendingHref.current
+    pendingHref.current = null
+    if (!href) return
+    history.pushState(null, "", href)
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -84,7 +101,7 @@ export function Header() {
           </button>
         </div>
 
-        <AnimatePresence>
+        <AnimatePresence onExitComplete={scrollToPending}>
           {menuOpen && (
             <motion.nav
               id="mobile-nav"
@@ -100,7 +117,7 @@ export function Header() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={goFromMenu}
                     className="rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-slate-50"
                   >
                     {item.label}
@@ -108,7 +125,7 @@ export function Header() {
                 ))}
                 <a
                   href="#cotizar"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={goFromMenu}
                   className="mt-2 rounded-xl bg-brand px-4 py-3 text-center font-bold text-white"
                 >
                   Cotizar reparación
