@@ -19,8 +19,18 @@ const NAV = [
 
 type NavItem = { href: string; label: string }
 
-// `nav` son anclas de la misma pagina; `homeHref` es a donde lleva el logo.
-export function Header({ nav = NAV, homeHref = "#top" }: { nav?: NavItem[]; homeHref?: string }) {
+// `nav` y `cta` son anclas de la misma pagina; `homeHref` es a donde lleva el logo.
+export function Header({
+  nav = NAV,
+  homeHref = "#top",
+  cta = { href: "#cotizar", label: "Cotizar reparación" },
+  tagline = ["Servicio", "técnico"],
+}: {
+  nav?: NavItem[]
+  homeHref?: string
+  cta?: NavItem
+  tagline?: [string, string]
+}) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pendingHref = useRef<string | null>(null)
@@ -73,9 +83,9 @@ export function Header({ nav = NAV, homeHref = "#top" }: { nav?: NavItem[]; home
               className="h-10 w-auto sm:h-14"
             />
             <span className="border-l border-slate-200 pl-3.5 text-[0.62rem] lg:hidden xl:block font-bold leading-tight tracking-[0.12em] text-slate-500 uppercase sm:text-[0.68rem]">
-              Servicio
+              {tagline[0]}
               <br />
-              técnico
+              {tagline[1]}
             </span>
           </Link>
 
@@ -92,11 +102,11 @@ export function Header({ nav = NAV, homeHref = "#top" }: { nav?: NavItem[]; home
           </nav>
 
           <a
-            href="#cotizar"
-            onClick={highlightQuote}
+            href={cta.href}
+            onClick={cta.href === "#cotizar" ? highlightQuote : undefined}
             className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-bold whitespace-nowrap text-white shadow-lg shadow-brand/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/30 lg:inline-flex"
           >
-            Cotizar reparación
+            {cta.label}
           </a>
 
           <button
@@ -134,11 +144,11 @@ export function Header({ nav = NAV, homeHref = "#top" }: { nav?: NavItem[]; home
                   </a>
                 ))}
                 <a
-                  href="#cotizar"
+                  href={cta.href}
                   onClick={goFromMenu}
                   className="mt-2 rounded-xl bg-brand px-4 py-3 text-center font-bold text-white"
                 >
-                  Cotizar reparación
+                  {cta.label}
                 </a>
               </div>
             </motion.nav>

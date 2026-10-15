@@ -1,8 +1,9 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Building2, Check, ShoppingBag } from "lucide-react"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { SectionHeading } from "@/components/site/section-heading"
-import { whatsappLink } from "@/lib/site"
+import { STORE_PAGE, whatsappLink } from "@/lib/site"
 
 const POINTS = [
   "Mantenimiento preventivo de computadoras e impresoras",
@@ -79,14 +80,12 @@ export function Business() {
                 Laptops, computadoras, impresoras, tintas y accesorios de cómputo. Pregunta por modelos y precios.
               </p>
             </div>
-            <a
-              href={whatsappLink("Hola Compumac, quiero consultar por un equipo.")}
-              target="_blank"
-              rel="noopener"
+            <Link
+              href={STORE_PAGE}
               className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 px-6 font-bold text-ink transition-colors hover:border-ink"
             >
-              Consultar disponibilidad
-            </a>
+              Ver la tienda
+            </Link>
           </div>
         </BlurFade>
       </section>

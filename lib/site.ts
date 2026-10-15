@@ -19,6 +19,39 @@ export const GOOGLE_REVIEWS = 27
 export const GOOGLE_PROFILE_URL = "https://www.google.com/maps/search/?api=1&query=Compumac+Jr.+Hu%C3%A1nuco+804+Piura"
 
 export const LAPTOP_PAGE = "/reparacion-de-laptops"
+export const STORE_PAGE = "/tienda"
+
+// Productos de la tienda. Sin precios: se consultan por WhatsApp.
+export const STORE_CATEGORIES = [
+  {
+    key: "laptops",
+    title: "Laptops y computadoras",
+    text: "Laptops, computadoras de escritorio y todo en uno para casa, estudios u oficina. Dinos para qué la necesitas y te recomendamos modelos.",
+    message: "Hola Compumac, quiero consultar precios de laptops y computadoras.",
+    cta: "Consultar laptops",
+  },
+  {
+    key: "impresoras",
+    title: "Impresoras",
+    text: "Impresoras para casa, colegio o negocio. Te ayudamos a elegir la que conviene según cuánto imprimes.",
+    message: "Hola Compumac, quiero consultar precios de impresoras.",
+    cta: "Consultar impresoras",
+  },
+  {
+    key: "tintas",
+    title: "Tintas y cartuchos",
+    text: "Tintas y cartuchos para tu impresora. Escríbenos la marca y el modelo, y te decimos qué tenemos.",
+    message: "Hola Compumac, quiero consultar tintas o cartuchos. Mi impresora es:",
+    cta: "Consultar tintas",
+  },
+  {
+    key: "accesorios",
+    title: "Accesorios de cómputo",
+    text: "Mouse, teclados, cargadores, discos, memorias, cables y más. Pregunta por lo que necesites.",
+    message: "Hola Compumac, quiero consultar un accesorio de cómputo.",
+    cta: "Consultar accesorios",
+  },
+] as const
 
 export function whatsappLink(text?: string) {
   return `https://wa.me/${WHATSAPP}${text ? `?text=${encodeURIComponent(text)}` : ""}`

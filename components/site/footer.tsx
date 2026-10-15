@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Phone } from "lucide-react"
 import { WhatsAppIcon } from "@/components/site/icons"
-import { ADDRESS, FACEBOOK, FOUNDED, INSTAGRAM, LAPTOP_PAGE, PHONE_DISPLAY, PHONE_TEL, whatsappLink } from "@/lib/site"
+import { ADDRESS, FACEBOOK, FOUNDED, INSTAGRAM, LAPTOP_PAGE, PHONE_DISPLAY, PHONE_TEL, STORE_PAGE, whatsappLink } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -33,6 +33,11 @@ export function Footer() {
             <li>
               <Link href="/#empresas" className="transition-colors hover:text-white">
                 Empresas
+              </Link>
+            </li>
+            <li>
+              <Link href={STORE_PAGE} className="transition-colors hover:text-white">
+                Tienda
               </Link>
             </li>
           </ul>
